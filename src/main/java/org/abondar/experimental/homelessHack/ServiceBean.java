@@ -7,13 +7,11 @@ package org.abondar.experimental.homelessHack;
 
 
 
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -29,7 +27,9 @@ public class ServiceBean {
     @Produces(MediaType.APPLICATION_JSON)
     public Response getData() {
 
-        String res = formJson("hi Hui");
+        Model mod = new Model();
+        mod.setName("Ahmed");
+        String res = formJson(mod);
         return Response.ok(res).build();
 
     }
@@ -37,21 +37,39 @@ public class ServiceBean {
     @POST
     @Path("/test_post")
     @Produces(MediaType.APPLICATION_JSON)
-    public Response postData(String param) {
+    public Response postData(@QueryParam("name") String name) {
 
-        String res = param + " HUI";
+        Model model = new Model();
+        model.setName(name);
+        model.setCodeName("ss1_"+name);
+        String res = formJson(model);
         return Response.ok(res).build();
 
     }
 
+    @POST
+    @Path("/test_post1")
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response postData(Model body) {
 
-    public String formJson(String test) {
+        System.out.println(body.toString());
+
+        Model model = new Model();
+        model.setName(body.getName());
+        model.setCodeName(body.getCodeName());
+        String res = formJson(model);
+        return Response.ok(res).build();
+
+    }
+
+    private String formJson(Model mod) {
 
         ObjectMapper om = new ObjectMapper();
 
         String jsonInString = "";
         try {
-            jsonInString = om.writeValueAsString(test);
+            jsonInString = om.writeValueAsString(mod);
         } catch (JsonProcessingException e) {
             e.printStackTrace();
         }
