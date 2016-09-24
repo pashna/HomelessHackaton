@@ -1,7 +1,10 @@
 .body-index {
-    background: url(http://mymaplist.com/img/parallax/back.png);
+    background: url(../img/back.png);
     background-color: #444;
-    background: url(http://mymaplist.com/img/parallax/pinlayer2.png),url(http://mymaplist.com/img/parallax/pinlayer1.png),url(http://mymaplist.com/img/parallax/back.png);
+    background: url(../img/back.png),url(../img/back.png),url(../img/back.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 
 .vertical-offset-100 {
