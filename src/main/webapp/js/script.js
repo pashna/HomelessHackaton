@@ -3,3 +3,4 @@
  */
 alert();
 alert("Test");
+alert("Test2");
