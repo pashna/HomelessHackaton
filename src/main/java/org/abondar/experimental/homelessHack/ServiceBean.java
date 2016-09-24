@@ -14,6 +14,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 
@@ -23,13 +24,13 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ServiceBean {
 
-
     @GET
     @Path("/test_get")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getData() {
 
-        return Response.ok("HI").build();
+        String res = formJson("hi Hui");
+        return Response.ok(res).build();
 
     }
 
@@ -44,19 +45,17 @@ public class ServiceBean {
     }
 
 
-    public void formJson(Event eb) {
+    public String formJson(String test) {
 
-        File fil = new File("/home/abondar/EventSearch/jsons/" + eb.getEventID() + ".json");
+        ObjectMapper om = new ObjectMapper();
+
+        String jsonInString = "";
         try {
-            FileOutputStream fos = new FileOutputStream(fil);
-            ObjectMapper om = new ObjectMapper();
-            om.writeValue(fos, eb);
-
-        } catch (IOException ex) {
-            Logger.getLogger(EventFinder.class.getName()).log(Level.SEVERE, null, ex);
-
+            jsonInString = om.writeValueAsString(test);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
         }
 
-
+        return jsonInString;
     }
 }

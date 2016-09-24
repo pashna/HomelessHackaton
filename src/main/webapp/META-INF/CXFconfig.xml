@@ -17,7 +17,7 @@
 
     <bean class="org.springframework.beans.factory.config.PreferencesPlaceholderConfigurer"/>
 
-    <jaxrs:server  id="hackBack" address="/hack_back" >
+    <jaxrs:server  id="homelessHackaton" address="/hack" >
         <jaxrs:serviceBeans>
             <bean class="org.abondar.experimental.homelessHack.ServiceBean" />
         </jaxrs:serviceBeans>
