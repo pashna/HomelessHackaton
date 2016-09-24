@@ -1,0 +1,58 @@
+.padding_80 {
+    padding-top: 80px;
+}
+
+.general_menu {
+    background: #293137;
+    height: 100%;
+    padding-right: 0px;
+    padding-left: 0px;
+    position: fixed;
+    width: 50px;
+    z-index: 8;
+}
+
+.general_menu a:hover {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    background: #ffffff;
+}
+
+.general_menu ul {
+    padding: 0px;
+}
+
+.general_menu a {
+    padding: 15px 13px;
+    font-weight: normal;
+    font-size: 22px;
+    padding: 15px 13px;
+    border-top: 1px solid #030405;
+    border-bottom: 1px solid #030405;
+    display: block;
+    margin-bottom: -1px;
+    color: #c7eaf9;
+    -webkit-transition: all 0.3s ease;
+}
+
+.active {
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    background: #ffffff;
+}
+
+.general_menu_tabs {
+    font-weight: normal;
+    font-size: 22px;
+    border-top: 1px solid #030405;
+    border-bottom: 1px solid #030405;
+    display: block;
+    margin-bottom: -1px;
+    color: #c7eaf9;
+    -webkit-transition: all 0.3s ease;
+}
+
+
+.profile_info {
+
+}
