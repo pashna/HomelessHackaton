@@ -17,6 +17,7 @@ function initMap() {
         ['Maroubra Beach', -33.950198, 151.259302, 1]
     ];
 
+    /*
     var description =
         ['<div class="info_content">' +
         '<h3>London Eye</h3>' +
@@ -27,7 +28,7 @@ function initMap() {
             '<div class="info_content"><h3>London Eye</h3><p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p></div>',
             '<div class="info_content"><h3>London Eye</h3><p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p></div>',
             '<div class="info_content"><h3>London Eye</h3><p>The London Eye is a giant Ferris wheel situated on the banks of the River Thames. The entire structure is 135 metres (443 ft) tall and the wheel has a diameter of 120 metres (394 ft).</p></div>'];
-
+    */
     var center_lon = 0;
     var center_lat = 0;
 
@@ -77,14 +78,27 @@ function toggleBounce() {
 
 
 function clearMarkers() {
-    console.log(markers);
     for (var i=0; i<markers.length; i++) {
         markers[i].setMap(null);
     }
+}
+
+function updateMarkers() {
+
 }
 
 $(".general_menu_a").click(function()  {
     clearMarkers();
     $(".general_menu_tabs").removeClass("active");
     $(this).addClass("active");
+    var good_type = $(this).attr("good_type");
+    
+    updateMarkers();
 });
+
+setTimeout(function () {
+
+    $(".general_menu_a")[0].click();
+    $(".general_menu_tabs")[0].click();
+    $(".icon-potate")[0].click()
+}, 100);

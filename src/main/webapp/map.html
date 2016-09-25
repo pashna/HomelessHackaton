@@ -10,6 +10,7 @@
     <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
     <script type="text/javascript" src="./Geometry_files/jquery.min.js"></script>
     <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="js/map_templater.js"></script>
     <link rel="stylesheet" type="text/css" href="css/map.css">
 
 </head>
@@ -22,7 +23,9 @@
 
     <div class="row fullsite">
         <div class="general_menu inner padding_80">
+            <!--
             <ul>
+
                 <li  class="general_menu_tabs">
                     <a class="general_menu_a active" href="#" ><i class="icon-chef"></i></a>
                 </li>
@@ -39,7 +42,12 @@
                     <a class="general_menu_a" href="#" ><i class="icon-shopping"></i></a>
                 </li>
             </ul>
+            -->
         </div>
+        <script>
+            fillGeneralMenuTabs();
+
+        </script>
 
         <!--Content-->
         <div class="col-md-11 side-bar" id="cont">
@@ -62,7 +70,8 @@
             <div class="row">
                 <div class="col-md-12">
                     <div id="tabs">
-                        <div id="tab1" class="active tab">
+                        <!--
+                        <div id="tab1" class="tab">
                             <h5 class="type">Potato</h5>
                             <ul class="type_row">
                                 <li><a class="type_item_a" href="map.html#">Safeway<span>22</span></a></li>
@@ -121,9 +130,14 @@
                                 <li><a class="type_item_a" href="map.html#" class="activepoint">Video game centre<span>22</span>
                                 </a></li>
                                 <li><a class="type_item_a" href="map.html#">Classic game<span>22</span></a></li>
+
                             </ul>
                         </div>
+                        -->
                     </div>
+                    <script>fillTabs();
+                    $(".general_menu_a")[0].click();
+                    ;</script>
                 </div>
             </div>
             <!--/Category menu--
@@ -164,7 +178,6 @@
         })
     </script>
     <script type="text/javascript" src="js/map.js"></script>
-    <script type="text/javascript" src="js/map_templater.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoclm4PrhUbQZOjg_qCIkrHVqs1lfwsjc&signed_in=true&callback=initMap"></script>
 </div>
 </body>

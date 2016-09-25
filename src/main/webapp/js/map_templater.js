@@ -196,7 +196,7 @@ var data = [
         ]
     },
     {
-        "Cucmber": [
+        "Cucuber": [
             {
                 "id": 19,
                 "name": "Safeway",
@@ -379,15 +379,66 @@ var icons = {
     "Potato": "icon-potate",
     "Carrot": "icon-carrot",
     "Tomato": "icon-tomato",
+    "Cucuber": "icon-cucuber",
     "Cabbage": "icon-cabbage",
 };
 
 
 
-function generateGeneralMenuTabs() {
-
+function fillGeneralMenuTabs() {
+    var text = '<ul>';
     for (var i=0; i<data.length; i++) {
         var veg = data[i];
         var veg_name = Object.getOwnPropertyNames(veg)[0];
+        text += generateLiFoeGeneralTabs(veg_name, icons[veg_name], i==0);
     }
+    text += '</ul>';
+    $(".general_menu").html(text);
+}
+
+function generateLiFoeGeneralTabs(name,icon, is_active) {
+    var active_text = "";
+    if (is_active) {
+        active_text = " active"
+    }
+    return '<li class="general_menu_tabs" >' +
+        '<a class="general_menu_a' + active_text + '" href="#" good_type="'+name+'">' +
+    '<i class="' + icon + '"></i></a>' +
+    '</li>';
+}
+
+var CURRENT_GOOD = 0;
+
+function fillTabs() {
+    var text = '';
+    var type;
+    for (var i=0;i < data.length; i++) {
+        type = Object.getOwnPropertyNames(data[i])[0];
+        console.log(type);
+        var value = data[i][type];
+        console.log("TYPE:");
+        console.log(type);
+        text += generateTab(i+1, type, value);
+    }
+    console.log(text);
+    $("#tabs").html(text);
+}
+
+function generateTab(id, type, data) {
+    console.log(id);
+    console.log(type);
+    console.log(data);
+    var text = '<div id="tab'+id+'" class="tab">';
+    text += '<h5 class="type">'+type+'</h5>';
+    text += '<ul class="type_row">';
+
+    for (var j=0; j<data.length; j++) {
+        var org = data[j]
+        text += '<li>';
+        text +='<a class="type_item_a" href="map.html#">' + org["name"] + "<span>"+org["totalKg"]+"</span></a>";
+        text += '</li>';
+    };
+    text += '</ul>';
+    text += '</div>';
+    return text;
 }
