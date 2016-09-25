@@ -10,6 +10,13 @@ public class Organization {
     private String phone;
     private OrgRoles role;
 
+    // just for lulz and demo
+    private int TotalKg;
+
+    private double lat;
+
+    private double lon;
+
     public int getId() {
         return id;
     }
@@ -48,6 +55,30 @@ public class Organization {
 
     public void setRole(OrgRoles role) {
         this.role = role;
+    }
+
+    public int getTotalKg() {
+        return TotalKg;
+    }
+
+    public void setTotalKg(int totalKg) {
+        TotalKg = totalKg;
+    }
+
+    public double getLat() {
+        return lat;
+    }
+
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public double getLon() {
+        return lon;
+    }
+
+    public void setLon(double lon) {
+        this.lon = lon;
     }
 
     @Override
