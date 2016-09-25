@@ -442,3 +442,14 @@ function generateTab(id, type, data) {
     text += '</div>';
     return text;
 }
+
+function generateDescription(name, address, phone) {
+    var text = "";
+    var text = '<div class="info_content">' +
+                    '<h3>'+ name +'</h3>' +
+                    '<p>'+address+'</p>' +
+                    '<p>'+phone+'</p>' +
+                '</div>';
+    return text;
+
+}

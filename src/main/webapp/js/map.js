@@ -5,6 +5,7 @@
 
 var map;
 var markers = [];
+var CURRENT_DATA;
 
 function initMap() {
     //37.3229621,-121.982301
@@ -42,7 +43,7 @@ function initMap() {
 
     map = new google.maps.Map(document.getElementById('map'), {
         center: new google.maps.LatLng(center_lat, center_lon),
-        zoom: 11,
+        zoom: 10,
     });
 
     var infowindow = new google.maps.InfoWindow();
@@ -63,6 +64,8 @@ function initMap() {
                 infowindow.open(map, marker);
             }
         })(marker, i));
+
+
     }
     
 }
@@ -83,8 +86,44 @@ function clearMarkers() {
     }
 }
 
-function updateMarkers() {
+function updateMap() {
+    updateMarkers();
+}
 
+function updateMarkers() {
+    markers = [];
+    var center_lon = 0;
+    var center_lat = 0;
+    var infowindow = new google.maps.InfoWindow();
+
+    for (var i=0; i<CURRENT_DATA.length; i++) {
+        console.log(CURRENT_DATA[i]['lat'], CURRENT_DATA[i]['lon']);
+        center_lat += CURRENT_DATA[i]['lat'];
+        center_lon += CURRENT_DATA[i]['lon'];
+        var marker = new google.maps.Marker({
+            position: new google.maps.LatLng(CURRENT_DATA[i]['lat'], CURRENT_DATA[i]['lon']),
+            map: map,
+            animation: google.maps.Animation.DROP,
+            title: 'Hello World!'
+        });
+
+        markers.push(marker)
+        marker.setMap(map);
+
+        var description = generateDescription(CURRENT_DATA[i]["name"], CURRENT_DATA[i]["address"], CURRENT_DATA[i]["phone"]);
+        console.log(description);
+        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+            return function () {
+                infowindow.setContent(description);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+    center_lat /= CURRENT_DATA.length;
+    center_lon /= CURRENT_DATA.length;
+
+    map.setCenter(new google.maps.LatLng(center_lat, center_lon));
+    map.setZoom(10);
 }
 
 $(".general_menu_a").click(function()  {
@@ -92,13 +131,19 @@ $(".general_menu_a").click(function()  {
     $(".general_menu_tabs").removeClass("active");
     $(this).addClass("active");
     var good_type = $(this).attr("good_type");
-    
-    updateMarkers();
+    for (var i=0; i<data.length; i++) {
+        var type = Object.getOwnPropertyNames(data[i])[0];
+        if (type==good_type) {
+            CURRENT_DATA = data[i][type];
+        }
+    }
+    updateMap();
 });
 
 setTimeout(function () {
 
     $(".general_menu_a")[0].click();
     $(".general_menu_tabs")[0].click();
-    $(".icon-potate")[0].click()
+    $(".icon-potate")[0].click();
+    CURRENT_DATA = data[0];
 }, 100);
