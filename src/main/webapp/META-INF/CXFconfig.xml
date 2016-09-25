@@ -19,7 +19,7 @@
 
     <jaxrs:server  id="homelessHackaton" address="/hack" >
         <jaxrs:serviceBeans>
-            <bean class="org.abondar.experimental.homelessHack.ServiceBean" />
+            <bean class="org.abondar.experimental.homelessHack.services.ServiceBean" />
         </jaxrs:serviceBeans>
         <jaxrs:providers>
             <bean id="jsonProvider" class="org.apache.cxf.jaxrs.provider.json.JSONProvider">
