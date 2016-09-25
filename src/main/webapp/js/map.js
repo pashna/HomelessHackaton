@@ -5,10 +5,13 @@
 
 var map;
 var markers = [];
+var description = [];
+var infowindow;
 var CURRENT_DATA;
 
 function initMap() {
     //37.3229621,-121.982301
+
 
     var locations = [
         ['Bondi Beach', -33.890542, 151.274856, 4],
@@ -17,6 +20,7 @@ function initMap() {
         ['Manly Beach', -33.80010128657071, 151.28747820854187, 2],
         ['Maroubra Beach', -33.950198, 151.259302, 1]
     ];
+
 
     /*
     var description =
@@ -46,7 +50,7 @@ function initMap() {
         zoom: 10,
     });
 
-    var infowindow = new google.maps.InfoWindow();
+    infowindow = new google.maps.InfoWindow();
 
     for (var i = 0; i < locations.length; i++) {
         marker = new google.maps.Marker({
@@ -58,16 +62,7 @@ function initMap() {
 
         markers.push(marker);
 
-        google.maps.event.addListener(marker, 'click', (function (marker, i) {
-            return function () {
-                infowindow.setContent(description[i]);
-                infowindow.open(map, marker);
-            }
-        })(marker, i));
-
-
     }
-    
 }
 
 
@@ -92,9 +87,9 @@ function updateMap() {
 
 function updateMarkers() {
     markers = [];
+    descriptions = [];
     var center_lon = 0;
     var center_lat = 0;
-    var infowindow = new google.maps.InfoWindow();
 
     for (var i=0; i<CURRENT_DATA.length; i++) {
         console.log(CURRENT_DATA[i]['lat'], CURRENT_DATA[i]['lon']);
@@ -107,23 +102,23 @@ function updateMarkers() {
             title: 'Hello World!'
         });
 
+        infowindow = new google.maps.InfoWindow();
         markers.push(marker)
-        marker.setMap(map);
+        descriptions.push(generateDescription(CURRENT_DATA[i]["name"], CURRENT_DATA[i]["address"], CURRENT_DATA[i]["phone"]));
 
-        var description = generateDescription(CURRENT_DATA[i]["name"], CURRENT_DATA[i]["address"], CURRENT_DATA[i]["phone"]);
-        console.log(description);
-        google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        marker.addListener('click', (function (marker, i) {
             return function () {
-                infowindow.setContent(description);
+                infowindow.setContent(descriptions[i])
                 infowindow.open(map, marker);
             }
         })(marker, i));
+
+        marker.setMap(map);
     }
     center_lat /= CURRENT_DATA.length;
     center_lon /= CURRENT_DATA.length;
-
     map.setCenter(new google.maps.LatLng(center_lat, center_lon));
-    map.setZoom(10);
+
 }
 
 $(".general_menu_a").click(function()  {
@@ -140,6 +135,14 @@ $(".general_menu_a").click(function()  {
     updateMap();
 });
 
+$(".type_item_a").click(function () {
+    setTimeout(function () {
+        var id = location.hash.slice(1);
+        id = parseInt(id);
+        infowindow.setContent(descriptions[id])
+        infowindow.open(map, markers[id]);
+    }, 100);
+});
 setTimeout(function () {
 
     $(".general_menu_a")[0].click();
@@ -147,3 +150,4 @@ setTimeout(function () {
     $(".icon-potate")[0].click();
     CURRENT_DATA = data[0];
 }, 100);
+
