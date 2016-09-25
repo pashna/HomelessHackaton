@@ -7,3 +7,13 @@
     background-color: #c7b39b; /* Цвет фона */
     background-size: 100%;
 }
+
+.pos {
+    position: relative;
+    right: -60px;
+    top: -3px;
+}
+
+body {
+    zoom: 120%;
+}
