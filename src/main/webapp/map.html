@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<!-- saved from url=(0040)map.html -->
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Morkovka</title>
+
+    <link rel="icon" type="image/png" href="img/favicon.png" />
+    <link href="css/bootstrap.css" rel="stylesheet" media="screen">
+    <link href="css/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+    <script type="text/javascript" src="./Geometry_files/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap-datetimepicker.min.js"></script>
+    <script type="text/javascript" src="js/map_templater.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/map.css">
+
+</head>
+<body>
+<!--
+        <div class="well">
+            <div id="datetimepicker1" class="input-append date">
+                <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input>
+                <span class="add-on">
+              <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+              </i>
+            </span>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function() {
+                $('#datetimepicker1').datetimepicker({
+                    language: 'pt-BR'
+                });
+            });
+        </script>
+        -->
+      <!--map-->
+    <div id="map_canvas" class="map">
+                <div id="map"></div>
+    </div>
+    <!--/map-->
+
+    <div class="row fullsite">
+        <div class="general_menu inner padding_80">
+            <!--
+            <ul>
+
+                <li  class="general_menu_tabs">
+                    <a class="general_menu_a active" href="#" ><i class="icon-chef"></i></a>
+                </li>
+                <li class="general_menu_tabs">
+                    <a class="general_menu_a" href="#" ><i class="icon-football-soccer"></i></a>
+                </li>
+                <li>
+                    <a class="general_menu_a" href="#" ><i class="icon-controllerps"></i></a>
+                </li>
+                <li class="general_menu_tabs">
+                    <a class="general_menu_a" href="#" ><i class="icon-leaf"></i></a>
+                </li>
+                <li class="general_menu_tabs">
+                    <a class="general_menu_a" href="#" ><i class="icon-shopping"></i></a>
+                </li>
+            </ul>
+            -->
+        </div>
+        <script>
+            fillGeneralMenuTabs();
+
+        </script>
+
+        <!--Content-->
+        <div class="col-md-11 side-bar" id="cont">
+            <!--header-->
+            <div class="row">
+                <div class="col-md-12 header">
+                    <div class="profile_info">
+                        <div class="profile_avatar_cont">
+                            <img src="img/logo.jpg" class="img-circle profile_avatar_img">
+                        </div>
+                        <div class="profile_desc_cont">
+                            <h5 class="profile_desc_text">Organization</h5>
+                            <div class="profile_desc_text">Some text about organization if we need</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--/header-->
+            <!--Category menu-->
+            <div class="row">
+                <div class="col-md-12">
+                    <div id="tabs">
+                        <!--
+                        <div id="tab1" class="tab">
+                            <h5 class="type">Potato</h5>
+                            <ul class="type_row">
+                                <li><a class="type_item_a" href="map.html#">Safeway<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Wolmart<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">McDonalds<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#" class="activepoint">PitStop<span>22</span>
+                                </a></li>
+                                <li><a class="type_item_a" href="map.html#">Pyaterochka<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Pitstop<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Cafe<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Bar<span>22</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="tab2" class="tab">
+                            <h5 class="type">Sport</h5>
+                            <ul class="type_row">
+                                <li><a class="type_item_a" href="map.html#">Stadion<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Sport Bar<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Football<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Fitness<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Bowling<span>22</span></a></li>
+
+                            </ul>
+                        </div>
+                        <div id="tab3" class="tab">
+                            <h5 class="type">Games</h5>
+                            <ul class="type_row">
+                                <li><a class="type_item_a" href="map.html#">Internet cafe<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Dota<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Chempions<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#" class="activepoint">Video game centre<span>22</span>
+                                </a></li>
+                                <li><a class="type_item_a" href="map.html#">Classic game<span>22</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="tab4" class="tab">
+                            <h5 class="type">Eco, parks</h5>
+                            <ul class="type_row">
+                                <li><a class="type_item_a" href="map.html#">Cafe<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Bar<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Restaurant<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#" class="activepoint">Fast food<span>22</span>
+                                </a></li>
+                                <li><a class="type_item_a" href="map.html#">Canteens<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Pitstop<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Cafe<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Bar<span>22</span></a></li>
+                            </ul>
+                        </div>
+                        <div id="tab5" class="tab">
+                            <h5 class="type">Shopping</h5>
+                            <ul class="type_row">
+                                <li><a class="type_item_a" href="map.html#">Internet cafe<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Dota<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#">Chempions<span>22</span></a></li>
+                                <li><a class="type_item_a" href="map.html#" class="activepoint">Video game centre<span>22</span>
+                                </a></li>
+                                <li><a class="type_item_a" href="map.html#">Classic game<span>22</span></a></li>
+
+                            </ul>
+                        </div>
+                        -->
+                    </div>
+                    <script>fillTabs();
+                    $(".general_menu_a")[0].click();
+                    ;</script>
+                </div>
+            </div>
+            <!--/Category menu--
+        <!--/Content-->
+    </div>
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.js"></script>
+     <!--Script for worked left smile categoryes menu-->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".inner ul li a").each(function (i) {
+                $(".inner ul li a:eq(" + i + ")").click(function () {
+                    var tab_id = i + 1;
+                    $(".inner ul li a").removeClass("active");
+                    $("#tabs .active").removeClass("active");
+                    $(this).addClass("active");
+                    $("#tabs div").stop(false, false).hide();
+                    $("#tab" + tab_id).stop(false, false).show();
+                    return false;
+                })
+            })
+        })
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#tabs_point li a").each(function (i) {
+                $("#tabs_point li a:eq(" + i + ")").click(function () {
+                    var tab_id = i + 1;
+                    $("#tabs_point li a").removeClass("active");
+                    $(".tabs_block_point .active").removeClass("active");
+                    $(this).addClass("active");
+                    $(".tabs_block_point div").stop(false, false).hide();
+                    $("#point_tab" + tab_id).stop(false, false).show();
+                    return false;
+                })
+            })
+        })
+    </script>
+    <script type="text/javascript" src="js/map.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCoclm4PrhUbQZOjg_qCIkrHVqs1lfwsjc&signed_in=true&callback=initMap"></script>
+</div>
+</body>
+</html>
