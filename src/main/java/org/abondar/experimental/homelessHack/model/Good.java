@@ -1,13 +1,17 @@
 package org.abondar.experimental.homelessHack.model;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
 /**
  * Created by alexabon on 9/24/2016.
  */
+@XmlRootElement
 public class Good {
 
     private int id;
     private String name;
     private GoodTypes type;
+    private int weight;
 
     public int getId() {
         return id;
@@ -31,6 +35,14 @@ public class Good {
 
     public void setType(GoodTypes type) {
         this.type = type;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+
+    public void setWeight(int weight) {
+        this.weight = weight;
     }
 
     @Override

@@ -10,14 +10,13 @@ package org.abondar.experimental.homelessHack.services;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.xml.bind.annotation.XmlElement;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.abondar.experimental.homelessHack.model.*;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
@@ -81,18 +80,13 @@ public class ServiceBean {
 
     }
 
+    @POST
+    @Path("/post_vegs")
+    @Consumes({MediaType.APPLICATION_JSON})
+    public Response caseCreate(List<Good> goods) {
 
-    //
-//    @POST
-//    @Path("/test_post1")
-//    @Consumes(MediaType.APPLICATION_JSON)
-//    @Produces(MediaType.APPLICATION_JSON)
-//    public Response caseCreate(Model body) {
-//
-//        String res = formJson(model);
-//        return Response.ok(res).build();
-//
-//    }
+        return Response.ok().build();
+    }
 
     private String formJson(Object obj) {
 
