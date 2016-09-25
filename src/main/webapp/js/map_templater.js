@@ -489,7 +489,11 @@ function generateDescription(name, address, phone) {
                     '<h3>'+ name +'</h3>' +
                     '<p>'+address+'</p>' +
                     '<p>'+phone+'</p>' +
+                    '<div class="text_align">'+
+                        '<button type="button" class="btn btn-danger">Pick Up</button> ' +
+                    '</div>'
                 '</div>';
+    //text += generateClock();
     return text;
 
 }

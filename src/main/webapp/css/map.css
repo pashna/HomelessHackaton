@@ -199,3 +199,12 @@ html {
 .svg {
     fill: #c7eaf9;
 }
+
+.pick_up_btn {
+    float: right;
+    background: #ee635d;
+}
+
+.text_align {
+    text-align: right;
+}
