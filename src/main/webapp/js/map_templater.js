@@ -4,6 +4,100 @@
 
 var data = [
     {
+        "Carrot": [
+            {
+                "id": 9,
+                "name": "Safeway",
+                "address": "2558 Berryessa Rd, San Jose, CA 95132",
+                "phone": "(408) 272-2287",
+                "role": "Grocery",
+                "lat": 37.3848005,
+                "lon": -121.9372835,
+                "totalKg": 14
+            },
+            {
+                "id": 10,
+                "name": "Walmart",
+                "address": "777 Story Rd, San Jose, CA 95122",
+                "phone": "(408) 885-1142",
+                "role": "Grocery",
+                "lat": 37.3711181,
+                "lon": -121.9565098,
+                "totalKg": 15
+            },
+            {
+                "id": 11,
+                "name": "Target",
+                "address": "298 W McKinley Ave, Sunnyvale, CA 94086",
+                "phone": "(408) 702-1012",
+                "role": "Grocery",
+                "lat": 37.3875078,
+                "lon": -121.1595421,
+                "totalKg": 13
+            },
+            {
+                "id": 12,
+                "name": "Costco Wholesale",
+                "address": "43621 Pacific Commons Blvd, Fremont, CA 94538",
+                "phone": "(510) 897-1091",
+                "role": "Grocery",
+                "lat": 37.4365838,
+                "lon": -121.9763471,
+                "totalKg": 20
+            },
+            {
+                "id": 13,
+                "name": "Trader Joe's",
+                "address": "316 W El Camino Real, Sunnyvale, CA 94087",
+                "phone": "(408) 736-7573",
+                "role": "Grocery",
+                "lat": 37.3372363,
+                "lon": -121.9674963,
+                "totalKg": 22
+            },
+            {
+                "id": 1,
+                "name": "Safeway",
+                "address": "3970 Rivermark Plaza, Santa Clara, CA 95054",
+                "phone": "(408) 855-0980",
+                "role": "Grocery",
+                "lat": 37.3992573,
+                "lon": -121.9565096,
+                "totalKg": 23
+            },
+            {
+                "id": 2,
+                "name": "Walmart",
+                "address": "301 Ranch Dr, Milpitas, CA 95035",
+                "phone": "(408) 934-0304",
+                "role": "Grocery",
+                "lat": 37.3847592,
+                "lon": -121.9723027,
+                "totalKg": 20
+            },
+            {
+                "id": 3,
+                "name": "Sigma Foods Inc",
+                "address": "392 Railroad Ct, Milpitas, CA 95035",
+                "phone": "(408) 941-9958",
+                "role": "Grocery",
+                "lat": 37.4366045,
+                "lon": -121.9084951,
+                "totalKg": 15
+            },
+            {
+                "id": 4,
+                "name": "SevenEleven",
+                "address": "596 N Abel St, Milpitas, CA 95035",
+                "phone": "(408) 946-6522",
+                "role": "Grocery",
+                "lat": 37.3885201,
+                "lon": -121.9493818,
+                "totalKg": 24
+            }
+        ]
+    },
+    {
         "Potato": [
             {
                 "id": 1,
@@ -88,60 +182,6 @@ var data = [
         ]
     },
     {
-        "Carrot": [
-            {
-                "id": 9,
-                "name": "Safeway",
-                "address": "2558 Berryessa Rd, San Jose, CA 95132",
-                "phone": "(408) 272-2287",
-                "role": "Grocery",
-                "lat": 37.3848005,
-                "lon": -121.9372835,
-                "totalKg": 14
-            },
-            {
-                "id": 10,
-                "name": "Walmart",
-                "address": "777 Story Rd, San Jose, CA 95122",
-                "phone": "(408) 885-1142",
-                "role": "Grocery",
-                "lat": 37.3711181,
-                "lon": -121.9565098,
-                "totalKg": 15
-            },
-            {
-                "id": 11,
-                "name": "Target",
-                "address": "298 W McKinley Ave, Sunnyvale, CA 94086",
-                "phone": "(408) 702-1012",
-                "role": "Grocery",
-                "lat": 37.3875078,
-                "lon": -121.1595421,
-                "totalKg": 13
-            },
-            {
-                "id": 12,
-                "name": "Costco Wholesale",
-                "address": "43621 Pacific Commons Blvd, Fremont, CA 94538",
-                "phone": "(510) 897-1091",
-                "role": "Grocery",
-                "lat": 37.4365838,
-                "lon": -121.9763471,
-                "totalKg": 20
-            },
-            {
-                "id": 13,
-                "name": "Trader Joe's",
-                "address": "316 W El Camino Real, Sunnyvale, CA 94087",
-                "phone": "(408) 736-7573",
-                "role": "Grocery",
-                "lat": 37.3372363,
-                "lon": -121.9674963,
-                "totalKg": 22
-            }
-        ]
-    },
-    {
         "Tomato": [
             {
                 "id": 14,
@@ -196,7 +236,7 @@ var data = [
         ]
     },
     {
-        "Cucuber": [
+        "Broccoli": [
             {
                 "id": 19,
                 "name": "Safeway",
@@ -376,11 +416,11 @@ var data = [
 ];
 
 var icons = {
-    "Potato": "icon-potate",
-    "Carrot": "icon-carrot",
-    "Tomato": "icon-tomato",
-    "Cucuber": "icon-cucuber",
-    "Cabbage": "icon-cabbage",
+    "Potato": "potato",
+    "Carrot": "carrot",
+    "Tomato": "tomato",
+    "Broccoli": "broccoli",
+    "Cabbage": "cabbage",
 };
 
 
@@ -402,9 +442,9 @@ function generateLiFoeGeneralTabs(name,icon, is_active) {
         active_text = " active"
     }
     return '<li class="general_menu_tabs" >' +
-        '<a class="general_menu_a' + active_text + '" href="#" good_type="'+name+'">' +
-    '<i class="' + icon + '"></i></a>' +
-    '</li>';
+                '<a class="general_menu_a' + active_text + '" href="#" good_type="'+name+'">' +
+                '<img src="img/' + icon + '.svg" class="svg" alt="'+name+'"/>' +
+            '</li>';
 }
 
 var CURRENT_GOOD = 0;
