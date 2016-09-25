@@ -475,7 +475,7 @@ function generateTab(id, type, data) {
     for (var j=0; j<data.length; j++) {
         var org = data[j]
         text += '<li>';
-        text +='<a class="type_item_a" href="map.html#'+j+'">' + org["name"] + "<span>"+org["totalKg"]+"</span></a>";
+        text +='<a class="type_item_a" href="map.html#'+j+'">' + org["name"] + "<span>"+org["totalKg"]+" lbs</span></a>";
         text += '</li>';
     };
     text += '</ul>';
