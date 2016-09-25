@@ -185,7 +185,12 @@ html {
 /* ICONS */
 [class^="icon-"], [class*=" icon-"] {
     font-family:'WebHostingHub-Glyphs';
-    font-style:normal}
+    font-style:normal;
+}
+
+#map {
+    position: static !important;
+}
 
 
 .icon-chef:before{content:'\f3ce'}
