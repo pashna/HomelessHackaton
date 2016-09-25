@@ -1,0 +1,9 @@
+.margin-top-auto{
+    margin-top: 10pt;
+}
+
+.body-bg {
+    background-image: url("../img/bg.jpg"); /* Путь к фоновому изображению */
+    background-color: #c7b39b; /* Цвет фона */
+    background-size: 100%;
+}
